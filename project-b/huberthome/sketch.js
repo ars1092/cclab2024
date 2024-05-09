@@ -54,7 +54,7 @@ function keyPressed() {
       door.y + door.h
     ) < 75
   ) {
-    let a = createA('../hubertdrive/index.html', '')
+    let a = createA('../hubertoutside/index.html', '')
     a.elt.click()
   }
 }
