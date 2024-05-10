@@ -73,45 +73,39 @@ class Hubert {
     this.rbound = width - this.w;
     this.lbound = 0;
     // Set default image
-    this.image = hubie; // Default image
+    this.img = hubie; // Default image
   }
 
   show() {
     // Display the image
-    image(this.image, this.x, this.y, this.w, this.h);
+    image(this.img, this.x, this.y, this.w, this.h);
+   
   }
 
   move() {
-    if (keyIsDown(UP_ARROW) && this.h >= this.minh && this.w >= this.minw) {
-      this.w -= this.speed;
-      this.h -= this.speed;
-      this.image = hubertF;
-    } else {
-      this.image = hubie;
-    }
-
-    if (keyIsDown(DOWN_ARROW) && this.h <= this.maxh && this.w <= this.maxw) {
-      this.image = hubertF;
-      this.w += this.speed;
-      this.h += this.speed;
-      this.image = hubertF;
-    } else {
-      this.image = hubie;
-    }
-
-    if (keyIsDown(LEFT_ARROW) && this.x > this.lbound) {
+    
+    if(keyIsDown(UP_ARROW) &&  this.h >= this.minh && this.w >= this.minw){
+      this.img = hubertF;
+      this.w -= this.speed/4;
+      this.h -= this.speed/4;
+    }else if(keyIsDown(DOWN_ARROW) && this.h <= this.maxh && this.w <= this.maxw){
+      this.img = hubertF;       
+      this.w += this.speed/4;
+      this.h += this.speed/4;
+    }else if (keyIsDown(LEFT_ARROW) && this.x > this.lbound) {
       this.x -= this.speed;
       // Change image to left facing
-      this.image = hubertL;
+      this.img = hubertL;
     } else if (keyIsDown(RIGHT_ARROW) && this.x < this.rbound) {
       this.x += this.speed;
       // Change image to right facing
-      this.image = hubertR;
+      this.img = hubertR;
     } else {
-      this.image = hubie;
+      this.img = hubie;
     }
   }
 }
+
 class Door {
   constructor(x, y, w, h) {
     this.x = 450;
